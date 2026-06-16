@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Javi Meta COD PRO</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Fondo animado */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #38bdf8 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveBg 20s linear infinite;
+    opacity: 0.1;
+}
+@keyframes moveBg {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-200px,-200px); }
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+    border-bottom: 2px solid #38bdf8;
+}
+
+.live {
+    color: red;
+    font-weight: bold;
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.filters {
+    text-align: center;
+    margin: 20px;
+}
+button {
+    background: #38bdf8;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: #0f172a;
+    border-radius: 15px;
+    padding: 15px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border: 1px solid #38bdf8;
+}
+
+.weapon {
+    font-size: 20px;
+    color: #38bdf8;
+}
+
+.tier {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.S { background: gold; color: black; }
+.A { background: lime; color: black; }
+.B { background: gray; }
+
+.stars {
+    color: gold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #38bdf8;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 META COD STREAMER PRO 🔥</h1>
+    <p class="live">● LIVE META ACTUALIZADO</p>
+</header>
+
+<div class="filters">
+    <button onclick="filter('all')">Todos</button>
+    <button onclick="filter('AR')">AR</button>
+    <button onclick="filter('SMG')">SMG</button>
+    <button onclick="filter('SNIPER')">Sniper</button>
+</div>
+
+<section class="container" id="weapons">
+
+    <div class="card" data-type="AR">
+        <div class="weapon">MCW</div>
+        <p>Precisión brutal en mid range</p>
+        <div class="tier S">S-Tier</div>
+        <div class="stars">★★★★★</div>
+    </div>
+
+    <div class="card" data-type="SMG">
+        <div class="weapon">HRM-9</div>
+        <p>Meta en corta distancia</p>
+        <div class="tier S">S-Tier</div>
+        <div class="stars">★★★★★</div>
+    </div>
+
+    <div class="card" data-type="AR">
+        <div class="weapon">BAS-B</div>
+        <p>Daño alto, recoil controlable</p>
+        <div class="tier A">A-Tier</div>
+        <div class="stars">★★★★☆</div>
+    </div>
+
+    <div class="card" data-type="SNIPER">
+        <div class="weapon">KATT-AMR</div>
+        <p>One shot garantizado</p>
+        <div class="tier S">S-Tier</div>
+        <div class="stars">★★★★★</div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© Javi Streamer HUD 🎮</p>
+</footer>
+
+<script>
+function filter(type) {
+    let cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        if(type === "all" || card.dataset.type === type){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
